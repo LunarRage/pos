@@ -4,15 +4,16 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ pos",
+    "create":"graph create pos --node https://graph-protection.axie.live/management",
+    "deploy": "graph deploy --version-label v0.0.1 --node https://graph-protection.axie.live/management pos",
     "create-local": "graph create --node http://localhost:8020/ pos",
     "remove-local": "graph remove --node http://localhost:8020/ pos",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 pos",
     "test": "graph test"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.36.1",
-    "@graphprotocol/graph-ts": "0.28.1"
+    "@graphprotocol/graph-cli": "0.26.1",
+    "@graphprotocol/graph-ts": "0.24.1"
   },
   "devDependencies": { "matchstick-as": "0.5.0" }
 }

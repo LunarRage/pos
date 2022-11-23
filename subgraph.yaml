@@ -1,4 +1,4 @@
-specVersion: 0.0.5
+specVersion: 0.0.4
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,76 +8,17 @@ dataSources:
     source:
       address: "0x32950db2a7164ae833121501c797d79e7b79d74c"
       abi: Axie
+      startBlock: 17177090
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.7
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
-        - AdminChanged
-        - AdminRemoved
-        - Approval
-        - ApprovalForAll
-        - AxieEvolved
-        - AxieSpawn
-        - AxieggMinted
-        - MinterAdded
-        - MinterRemoved
-        - NonceUpdated
-        - Paused
-        - PermissionSet
-        - PermissionSetAll
-        - SeederAdded
-        - SeederRemoved
-        - SpenderUnwhitelisted
-        - SpenderWhitelisted
-        - TokenOperatorSet
-        - TokenPermissionSet
-        - Transfer
-        - Unpaused
+        - al
       abis:
         - name: Axie
           file: ./abis/Axie.json
       eventHandlers:
-        - event: AdminChanged(indexed address,indexed address)
-          handler: handleAdminChanged
-        - event: AdminRemoved(indexed address)
-          handler: handleAdminRemoved
-        - event: Approval(indexed address,indexed address,indexed uint256)
-          handler: handleApproval
-        - event: ApprovalForAll(indexed address,indexed address,bool)
-          handler: handleApprovalForAll
-        - event: AxieEvolved(indexed uint256,(uint256,uint256))
-          handler: handleAxieEvolved
-        - event: AxieSpawn(indexed uint256)
-          handler: handleAxieSpawn
-        - event: AxieggMinted(indexed uint256,(uint256,uint256,uint256,(uint256,uint256),uint8,uint16),((uint256,uint256),(uint256,uint256)))
-          handler: handleAxieggMinted
-        - event: MinterAdded(indexed address)
-          handler: handleMinterAdded
-        - event: MinterRemoved(indexed address)
-          handler: handleMinterRemoved
-        - event: NonceUpdated(indexed uint256,indexed uint256)
-          handler: handleNonceUpdated
-        - event: Paused()
-          handler: handlePaused
-        - event: PermissionSet(address,address,bytes4,bool)
-          handler: handlePermissionSet
-        - event: PermissionSetAll(address,address,bool)
-          handler: handlePermissionSetAll
-        - event: SeederAdded(indexed address)
-          handler: handleSeederAdded
-        - event: SeederRemoved(indexed address)
-          handler: handleSeederRemoved
-        - event: SpenderUnwhitelisted(indexed address)
-          handler: handleSpenderUnwhitelisted
-        - event: SpenderWhitelisted(indexed address)
-          handler: handleSpenderWhitelisted
-        - event: TokenOperatorSet(uint256,address,bool)
-          handler: handleTokenOperatorSet
-        - event: TokenPermissionSet(uint256,address,bytes4,bool)
-          handler: handleTokenPermissionSet
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-        - event: Unpaused()
-          handler: handleUnpaused
       file: ./src/axie.ts
