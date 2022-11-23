@@ -1,0 +1,198 @@
+type AdminChanged @entity(immutable: true) {
+  id: Bytes!
+  _oldAdmin: Bytes! # address
+  _newAdmin: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AdminRemoved @entity(immutable: true) {
+  id: Bytes!
+  _oldAdmin: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Approval @entity(immutable: true) {
+  id: Bytes!
+  _owner: Bytes! # address
+  _approved: Bytes! # address
+  _tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ApprovalForAll @entity(immutable: true) {
+  id: Bytes!
+  _owner: Bytes! # address
+  _operator: Bytes! # address
+  _approved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AxieEvolved @entity(immutable: true) {
+  id: Bytes!
+  _axieId: BigInt! # uint256
+  _genes_x: BigInt! # uint256
+  _genes_y: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AxieSpawn @entity(immutable: true) {
+  id: Bytes!
+  _axieId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type AxieggMinted @entity(immutable: true) {
+  id: Bytes!
+  _axieId: BigInt! # uint256
+  _axie_sireId: BigInt! # uint256
+  _axie_matronId: BigInt! # uint256
+  _axie_birthDate: BigInt! # uint256
+  _axie_genes_x: BigInt! # uint256
+  _axie_genes_y: BigInt! # uint256
+  _axie_breedCount: Int! # uint8
+  _axie_level: Int! # uint16
+  _axiegg_sireGenes_x: BigInt! # uint256
+  _axiegg_sireGenes_y: BigInt! # uint256
+  _axiegg_matronGenes_x: BigInt! # uint256
+  _axiegg_matronGenes_y: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MinterAdded @entity(immutable: true) {
+  id: Bytes!
+  _minter: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MinterRemoved @entity(immutable: true) {
+  id: Bytes!
+  _minter: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NonceUpdated @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  _nonce: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Paused @entity(immutable: true) {
+  id: Bytes!
+
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PermissionSet @entity(immutable: true) {
+  id: Bytes!
+  _owner: Bytes! # address
+  _operator: Bytes! # address
+  _funcSig: Bytes! # bytes4
+  _approved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PermissionSetAll @entity(immutable: true) {
+  id: Bytes!
+  _owner: Bytes! # address
+  _operator: Bytes! # address
+  _approved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SeederAdded @entity(immutable: true) {
+  id: Bytes!
+  _seeder: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SeederRemoved @entity(immutable: true) {
+  id: Bytes!
+  _seeder: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SpenderUnwhitelisted @entity(immutable: true) {
+  id: Bytes!
+  _spender: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SpenderWhitelisted @entity(immutable: true) {
+  id: Bytes!
+  _spender: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenOperatorSet @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  _operator: Bytes! # address
+  _approved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenPermissionSet @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  _operator: Bytes! # address
+  _funcSig: Bytes! # bytes4
+  _approved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Transfer @entity(immutable: true) {
+  id: Bytes!
+  _from: Bytes! # address
+  _to: Bytes! # address
+  _tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Unpaused @entity(immutable: true) {
+  id: Bytes!
+
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
