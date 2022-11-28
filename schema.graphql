@@ -1,0 +1,53 @@
+type RoninAccount @entity{
+    id:ID!
+    totalSold: BigInt!
+    totalPurchased: BigInt!
+    soldHistory: [SellerHistory!] @derivedFrom(field:"seller")
+    buyerHistory: [BuyerHistory!] @derivedFrom(field:"buyer")
+}
+
+type Axie @entity{
+    id:ID!
+    purchaseTotal: BigInt!
+    type: String!
+    sellerHistory: [SellerHistory!] @derivedFrom(field:"axieID")
+    buyerHistory: [BuyerHistory!] @derivedFrom(field:"axieID")
+}
+
+type Transaction @entity(immutable:true){
+    id:ID!
+    timeStamp:BigInt!
+    isReferral: Boolean!
+    treasury: BigDecimal
+    buyer: BigDecimal
+    referral: BigDecimal
+    buyerHistory: [BuyerHistory!] @derivedFrom(field:"transaction")
+    sellerHistory: [SellerHistory!] @derivedFrom(field:"transaction")
+    referralHistory: [ReferralHistory!] @derivedFrom(field:"transaction")
+}
+
+type Referral @entity{
+    id:ID!
+    totalEarned: BigDecimal!
+    referralHistory: [ReferralHistory!] @derivedFrom(field:"referral")
+}
+
+type ReferralHistory @entity(immutable:true){
+    id:ID!
+    transaction: Transaction!
+    referral: Referral!
+}
+
+type BuyerHistory @entity(immutable:true){
+    id:ID!
+    transaction: Transaction!
+    buyer: RoninAccount!
+    axieID:Axie
+}
+
+type SellerHistory @entity(immutable:true){
+    id:ID!
+    transaction: Transaction!
+    seller:RoninAccount!
+    axieID:Axie
+}
